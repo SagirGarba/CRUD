@@ -13,6 +13,24 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleDelete = (id: string | number) => {
+    const confirm = window.confirm(
+      `Would you like to delete this user? ${data.name}`
+    );
+    if (confirm) {
+      console.log("Delete confirmed for ID:", id);
+      axios
+        .delete("http://localhost:3000/users/" + id)
+        .then((res) => {
+          console.log("Delete response:", res);
+          location.reload();
+        })
+        .catch((err) => {
+          console.log("Delete error:", err);
+        });
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center items-center bg-gray-100 h-full">
       <h1 className="text-4xl m-3">List of Users</h1>
@@ -45,10 +63,15 @@ const Home = () => {
                       Read
                     </button>
                   </Link>
-                  <button className="mr-6 p-1 rounded-md bg-blue-700">
-                    Edit
-                  </button>
-                  <button className="p-1 rounded-md bg-red-600 mb-3">
+                  <Link to={`/update/${user.id}`}>
+                    <button className="mr-6 p-1 rounded-md bg-blue-700">
+                      Edit
+                    </button>
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(user.id)}
+                    className="p-1 rounded-md bg-red-600 mb-3"
+                  >
                     Delete
                   </button>
                 </td>
