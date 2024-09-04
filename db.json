@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "name": "Leanne Graham",
+      "name": "Leanne Update",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "phone": "1-770-736-8031 x56442",
@@ -79,6 +79,12 @@
       "email": "Rey.Padberg@karina.biz",
       "phone": "024-648-3804",
       "website": "ambrose.net"
+    },
+    {
+      "id": "79e6",
+      "name": "Sagir Garba",
+      "email": "sagir40me@gmail.com",
+      "phone": "07032623101"
     }
   ]
 }
